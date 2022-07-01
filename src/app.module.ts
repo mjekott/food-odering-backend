@@ -3,7 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import * as joi from 'joi';
-import { DatabaseModule } from './databse/database.module';
+import { DatabaseModule } from './database/database.module';
+import { DishModules } from './dish/dish.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { DatabaseModule } from './databse/database.module';
       }),
     }),
     DatabaseModule,
+    DishModules,
   ],
   controllers: [AppController],
   providers: [AppService],
