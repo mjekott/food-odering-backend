@@ -4,7 +4,7 @@ import { Document } from 'mongoose';
 
 export type CategoryDocument = Category & Document;
 
-@Schema()
+@Schema({ timestamps: true })
 export class Category {
   @ApiProperty({ description: 'id of category' })
   _id: number;

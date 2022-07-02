@@ -17,7 +17,7 @@ export class CategoryService {
    * @param {CreateCategoryDto}
    * @returns {Promise<Category>} a new category
    */
-  async create(data: CreateCategoryDto) {
+  async create({ data }: { data: CreateCategoryDto }): Promise<Category> {
     const { name } = data;
     const categoryExist = await this.categoryModel.findOne({ name });
     if (categoryExist) {
@@ -26,7 +26,7 @@ export class CategoryService {
       );
     }
     const category = new this.categoryModel({ name });
-    await category.save();
+    return category.save();
   }
 
   /**

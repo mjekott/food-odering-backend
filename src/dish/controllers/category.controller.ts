@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateCategoryDto } from '../dtos/createCategory.dto';
 import { Category } from '../schema/category.schema';
@@ -21,7 +14,7 @@ export class CategeoryController {
   @ApiResponse({ status: 422, description: 'Bad input value' })
   @ApiResponse({ status: 201, description: 'category created' })
   async create(@Body() data: CreateCategoryDto) {
-    return this.categoryService.create(data);
+    return this.categoryService.create({ data });
   }
 
   @Get()

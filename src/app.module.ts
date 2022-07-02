@@ -1,3 +1,4 @@
+import { MediaModule } from './media/media.module';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -16,6 +17,7 @@ import { DishModules } from './dish/dish.module';
     }),
     DatabaseModule,
     DishModules,
+    MediaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
